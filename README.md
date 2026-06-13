@@ -28,25 +28,6 @@ The app opens at **http://localhost:8501** by default.
 
 ---
 
-## Saving the Model from Colab
-
-Add this cell at the end of your Colab notebook (after the tuning section):
-
-```python
-import joblib
-joblib.dump(best_model, 'burnout_xgb_model.pkl')
-
-# Also save the scaler (needed if deploying LR/SVM variants)
-joblib.dump(scaler, 'burnout_scaler.pkl')
-```
-
-Download `burnout_xgb_model.pkl` and place it alongside `app.py`.
-
-The app auto-detects the file — if absent, it falls back to a
-rule-based predictor that mirrors the XGBoost decision logic.
-
----
-
 ## Deploy to Streamlit Cloud
 
 1. Push `app.py` and `requirements.txt` to a GitHub repo
